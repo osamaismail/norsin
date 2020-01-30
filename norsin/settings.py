@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup.apps.CleanupConfig',
     'home',
     'blogs',
     'accounts',
@@ -183,4 +184,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 # The age of session cookies, in seconds
 # Default: 1209600 (2 weeks, in seconds)
-SESSION_COOKIE_AGE = 15 * 60
+#SESSION_COOKIE_AGE = 15 * 60
+
+
+ALLOW_UNICODE_SLUGS = True

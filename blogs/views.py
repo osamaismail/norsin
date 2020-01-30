@@ -67,10 +67,9 @@ def post(request, slug):
     return render(request, 'blogs/post.html', context)
 
 @login_required
-
 def post_create(request):
     title = 'Create an'
-    submit = 'Create'
+    submit = 'اضافة'
     form = PostForm(request.POST or None, request.FILES or None)
     author = get_author(request.user)
     if request.method == "POST":
@@ -82,9 +81,10 @@ def post_create(request):
     context = {'title': title,'submit': submit,'form': form}
     return render(request,'blogs/create_post.html', context)
 
+@login_required
 def post_update(request, slug):
     title = 'Update the'
-    submit = 'Update'
+    submit = 'تحديث'
     post = get_object_or_404(Post, slug=slug)
     form = PostForm(request.POST or None, request.FILES or None, instance=post)
     author = get_author(request.user)
@@ -97,6 +97,7 @@ def post_update(request, slug):
     context = {'title': title,'submit': submit, 'form': form}
     return render(request,'blogs/create_post.html', context)
 
+@login_required
 def post_delete(request, slug):
     p = Post.objects.get(slug=slug)
     p.deleted = True

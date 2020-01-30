@@ -2,15 +2,31 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="form-group col-6 offset-3 mb-5 mt-5">
-  <h3>{{ title }} Article</h3><br>
-  {{ form.media }}
-  <form action="." method="POST" enctype='multipart/form-data'>
-    {% csrf_token %}
-    <div class="form-group">
-      {{ form|crispy}}
-      <button type="submit" class="btn btn-success btn-lg">{{ submit }}</button>
+
+<div class="container mb-5 mt-5">
+  <div class="row">
+    <div class="col">
+
     </div>
-  </form>
+    <div class="col-6">
+      <div class="card text-right border-primary">
+        <div class="form-group col-auto mb-5 mt-5">
+          <h3>{{ title }} Article</h3><br>
+          {{ form.media }}
+          <form action="." method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="form-group">
+              {{ form|crispy}}
+              <button type="submit" class="btn btn-success btn-lg">{{ submit }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
 </div>
+
 {% endblock content %}

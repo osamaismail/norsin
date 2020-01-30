@@ -1,6 +1,7 @@
 from django.db import models
-from norsin.utils import unique_slug_generator
-from django.db.models.signals import pre_save
+# from norsin.utils import unique_slug_generator
+from autoslug import AutoSlugField
+# from django.db.models.signals import pre_save
 from accounts.models import Blogger
 from PIL import Image
 from django.urls import reverse
@@ -21,17 +22,17 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(blank=True, max_length=100)
-    slug = models.SlugField(blank=True, unique=True)
-    overview = models.TextField(blank=True)
-    content = HTMLField()
+    title = models.CharField(blank=True, max_length=100, verbose_name='عنوان المقال')
+    slug = AutoSlugField(populate_from='timestamp', unique_with='timestamp')
+    overview = models.TextField(blank=True, verbose_name='المقدمة')
+    content = HTMLField(verbose_name='المقال')
     timestamp = models.DateTimeField(auto_now_add=True)
     comment_count = models.IntegerField(default=0)
     view_count = models.IntegerField(default=0)
     author = models.ForeignKey(Blogger, on_delete=models.CASCADE)
-    thumbnail = models.ImageField(upload_to="post_thumbnail/")
-    categories = models.ManyToManyField(Category)
-    featured = models.BooleanField(default=False)
+    thumbnail = models.ImageField(upload_to="post_thumbnail/", verbose_name='صورة المقال')
+    categories = models.ManyToManyField(Category, verbose_name='التصنيفات')
+    featured = models.BooleanField(default=False, verbose_name='المميز')
     deleted = models.BooleanField(default=False)
     # pre_post = models.ForeignKey('self', related_name='previous_post' ,on_delete=models.SET_NULL, blank=True, null=True)
     # nex_post = models.ForeignKey('self', related_name='next_post' ,on_delete=models.SET_NULL, blank=True, null=True)
@@ -39,6 +40,14 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        super(Post, self).save(*args, **kwargs)
+        thumbnail = Image.open(self.thumbnail.path)
+        if thumbnail.height > 400 or thumbnail.width > 400:
+            output_size = (400, 400)
+            thumbnail.thumbnail(output_size)
+            thumbnail.save(self.thumbnail.path)
 
     def get_absolute_url(self):
         return reverse('post_detial', kwargs={'slug':self.slug})
@@ -49,11 +58,11 @@ class Post(models.Model):
     def get_delete_url(self):
         return reverse('post_detial', kwargs={'slug':self.slug})
 
-def post_pre_save_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = unique_slug_generator(instance)
-
-pre_save.connect(post_pre_save_receiver, sender=Post)
+# def post_pre_save_receiver(sender, instance, *args, **kwargs):
+#     if not instance.slug:
+#         instance.slug = unique_slug_generator(instance)
+#
+# pre_save.connect(post_pre_save_receiver, sender=Post)
 
 # @property
 #
