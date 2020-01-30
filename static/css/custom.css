@@ -1,1 +1,9 @@
 /* your styles go here */
+
+.ar-font{
+    font-family: 'Amiri', serif;
+        }
+
+.ar-font-title{
+    font-family: 'Harmattan', sans-serif;
+}

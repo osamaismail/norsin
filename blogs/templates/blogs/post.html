@@ -24,7 +24,11 @@
                     {% endfor %}
                   </div>
                 </div>
-                <h1>{{ post.title }}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
+                <h2 class="ar-font-title text-right">{{ post.title }}
+                  <a href="#">
+                    <i class="fa fa-bookmark-o"></i>
+                  </a>
+                </h2>
                 <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
                     <div class="avatar"><img src="{{ post.author.user_pic.url }}" alt="..." class="img-fluid"></div>
                     <div class="title"><span>{{ post.author }}</span></div></a>
@@ -34,7 +38,7 @@
                     <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
                   </div>
                 </div>
-                <div class="post-body">
+                <div class="post-body text-justify ar-font">
                   {{ post.content | safe }}
                 </div>
 
