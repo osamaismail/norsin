@@ -18,9 +18,12 @@
                 <div class="post-meta d-flex justify-content-between">
                   <div class="date meta-last">{{ obj.timestamp }}</div>
                   {% for cat in obj.categories.all %}
-                  <div class="category"><a href="#">{{ cat }}|</a></div>
+                  <div class="category">
+                    <a href="#">{{ cat }}|</a>
+                  </div>
                   {% endfor %}
-                </div><a href="{{ obj.get_absolute_url }}">
+                </div>
+                <a href="{{ obj.get_absolute_url }}">
                   <h3 class="ar-font-title text-center h4">{{ obj.title }}</h3></a>
                 <p class="text-muted">{{ obj.overview|linebreaks|truncatewords:15 }}.</p>
                 <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
