@@ -36,6 +36,7 @@
           <li class="nav-item"><a href="{% url 'post_create' %}" class="nav-link ">اضافة خبر</a>
           </li>
           {% endif %}
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link ">عن المنظمة</a>
           <li class="nav-item"><a href="#" class="nav-link ">الاتصال بنا</a>
             {% if user.is_authenticated %}
               <li class="nav-item"><a href="#" class="nav-link ">مرحبا {{ user.username |upper }}</a>

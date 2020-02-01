@@ -14,6 +14,9 @@ def search(request):
     context = {'queryset':queryset}
     return render(request, 'home/search_result.html', context)
 
+def about(request):
+    return render(request, 'home/about.html', {})
+
 
 def index(request):
     featured = Post.objects.filter(featured=True)
