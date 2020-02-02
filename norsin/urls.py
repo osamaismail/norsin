@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
-from home.views import index, search, about
+from home.views import index, search, about, contact
 from blogs.views import blogs, post, post_create, post_update, post_delete
 
 urlpatterns = [
@@ -28,6 +28,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('search/', search, name='search'),
     path('about', about, name='about'),
+    path('contact', contact, name='contact'),
     path('blogs/', blogs, name='blogs'),
     path('add/', post_create, name='post_create'),
     path('post/<slug>/', post, name='post_detial'),

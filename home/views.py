@@ -17,6 +17,8 @@ def search(request):
 def about(request):
     return render(request, 'home/about.html', {})
 
+def contact(request):
+    return render(request, 'home/contact.html', {})
 
 def index(request):
     featured = Post.objects.filter(featured=True)
