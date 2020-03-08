@@ -4,18 +4,20 @@
 
 
 {% block content %}
-<div class="container">
+<div class="container py-5">
   <br><br>
   <div class="text-center">
-    <h2>This is the result of your search</h2>
-    <hr>
+    <h2>نتائج ما تبحث عنه</h2>
+    <hr><hr>
   </div>
       <br><br>
       {% for post in queryset %}
-      {% comment %} <h5>{{ forloop.counter }} - <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5> {% endcomment %}
       <div class="card" style="width: 25rem;">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{ forloop.counter }} - <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+          <li class="list-group-item text-right">{{ forloop.counter }} - <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+          </li>
+          {% empty %}
+          <li class="text-right">اسف، لا توجد نتائج لما تبحث عنه</li>
         </ul>
       </div>
       {% endfor %}

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from blogs.models import Post
 from newsletter.models import Subscribe
+from .forms import ContactFormForm
 
 
 
@@ -18,7 +19,14 @@ def about(request):
     return render(request, 'home/about.html', {})
 
 def contact(request):
-    return render(request, 'home/contact.html', {})
+    if request.method == 'POST':
+        form = ContactFormForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact')
+    form = ContactFormForm()
+    context = {'form':form}
+    return render(request, 'home/contact.html', context)
 
 def index(request):
     featured = Post.objects.filter(featured=True)

@@ -57,16 +57,16 @@
 
         </div>
       </main>
-      <aside class="col-lg-4">
+      <aside class="col-lg-4 text-right">
         <!-- Widget [Search Bar Widget]-->
         <div class="widget search">
           <header>
-            <h3 class="h6">Search the blog</h3>
+            <h3 class="h6">البحث في الموقع</h3>
           </header>
           <form action="{% url 'search' %}" class="search-form">
             {% csrf_token %}
             <div class="form-group">
-              <input type="text" name='q' placeholder="What are you looking for?">
+              <input type="text" name='q' placeholder="البحث في الموقع">
               <button type="submit" class="submit"><i class="icon-search"></i></button>
             </div>
           </form>
