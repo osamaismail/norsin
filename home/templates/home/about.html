@@ -1,18 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
 <div class="container-fluid">
-  <div class="bg-light">
+  <div class="bg-light text-right">
     <div class="container py-5">
       <div class="row h-100 align-items-center py-5">
         <div class="col-lg-6">
-          <h1 class="display-4">About us page</h1>
-          <p class="lead text-muted mb-0">Create a minimal about us page using Bootstrap 4.</p>
-          <p class="lead text-muted">Snippet by <a href="https://bootstrapious.com/snippets" class="text-muted">
-                      <u>Bootstrapious</u></a>
-          </p>
+          <h1 class="display-4 title-brand">عن المنظمة</h1>
+          <p class="lead text-muted mb-0">مجموعة من اساتذة الجامعات و من مختلف الطوائف و الأقليات جمعتنا الظروف و من غير موعد لنشكل لجنة لمكافحة المخدرات ، تلك الآفة التي تعصف بالعراق بشبابه و شاباته لنجد نفسنا أمام محنة تحتاج الى العمل لإيقاف التدهور في انتشار تلك الآفة ، وها نحن نجتمع لنبني صرح حضاري وهي منظمة نورسين للتوعية و التنمية لتكون سدا منيعاً ضد كل من افة المخدرات ، الانتحار ، ظاهرة التحرش ، و الابتزاز الإلكتروني .... وغيرها ...
+و هنا حان الوقت ليتحالف من احب العراق بصدق لتنمو تلك الشجرة الصغيرة و لتكبر و تطرح ثمارها بعد مباركة الامانه العامة لمجلس الوزراء لها لتكون ضمن (( 1L1908007)) شجرة تحمي العراق و العراقيين من مخاطر الشر الذي يريد تدمير نواة الأسرة العراقية</p>
         </div>
-        <div class="col-lg-6 d-none d-lg-block"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt="" class="img-fluid"></div>
+        <div class="col-lg-6 d-none d-lg-block"><img src="{% static 'img/norsin_logo.jpg' %}" alt="" width='350' height='350' class="img-fluid"></div>
       </div>
     </div>
   </div>
@@ -21,10 +21,12 @@
     <div class="container py-5">
       <div class="row align-items-center mb-5">
         <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
-          <h2 class="font-weight-light">Lorem ipsum dolor sit amet</h2>
-          <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a>
+          <h2 class="font-weight-light">About The Organization</h2>
+          <p class="font-italic text-muted mb-4">The organization was formed by a number of Iraqi academics and doctors from various Iraqi universities, honorable Iraqis who did not want to remain silent about what is happening in Iraq.
+We are the first local organization with its internal system to include plans and programs to raise awareness and conduct scientific research to counter the drug scourge.
+The programmer of the relevant entities have changed from promotional awareness to medical awareness of the dangers of NACROTIC in Iraq</p>
         </div>
-        <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+        <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="{% static 'img/norsin_logo.jpg' %}" alt="" width='350' height='350' class="img-fluid mb-4 mb-lg-0"></div>
       </div>
       <div class="row align-items-center">
         <div class="col-lg-5 px-5 mx-auto"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
