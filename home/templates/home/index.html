@@ -81,7 +81,7 @@
       </div>
     </section>
     <!-- Divider Section-->
-    <section style="background: url({% static 'img/divider-bg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
+    {% comment %} <section style="background: url({% static 'img/divider-bg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
       <div class="container">
         <div class="row">
           <div class="col-md-7">
@@ -89,7 +89,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> {% endcomment %}
     <!-- Latest Posts -->
     <section class="latest-posts">
       <div class="container">
@@ -124,17 +124,17 @@
     <section class="newsletter no-padding-top">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <h2>Subscribe to Newsletter</h2>
-            <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="col-md-5">
+            <h2>اشترك في النشرة الإخبارية</h2>
+            <p class="text-big">للحصول على اخبار المنظمة</p>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-6">
             <div class="form-holder">
               <form action="." method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                  <input type="email" name="email" id="email" placeholder="Type your email address">
-                  <button type="submit" class="submit">Subscribe</button>
+                  <input type="email" name="email" id="email" placeholder="اكتب عنوان بريدك الالكتروني">
+                  <button type="submit" class="submit">اشترك</button>
                 </div>
               </form>
             </div>
