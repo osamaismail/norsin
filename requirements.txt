@@ -1,5 +1,5 @@
 asgiref==3.2.3
-Django==3.0.4
+Django==3.0.7
 django-autoslug==1.9.6
 django-cleanup==4.0.0
 django-crispy-forms==1.8.1
